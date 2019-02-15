@@ -1,0 +1,38 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+
+  "name": "Mamba App",
+  "short_name": "Mamba App",
+  "description": "Для сайта mamba.ru Cкрывает просмотренные профили в поиске.Посылка сообщения левой кнопкой мыши в поиске.Посещение профилей",
+  "version": "0.3.3",
+
+  "permissions": [ "activeTab", "webRequest", "tabs", "cookies", "webRequestBlocking", "unlimitedStorage", "storage", "*://*.mamba.ru/*" ],
+
+  "browser_action": {
+    "default_icon": "icon_16.png",
+    "default_title": "Mamba App",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+      "scripts": [ "jquery.js", "bg.js" ]
+   },
+
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.mamba.ru/*"
+       ],
+      "js": [ "jquery.js", "script.js" ]
+    }
+  ]
+
+}
